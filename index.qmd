@@ -34,7 +34,9 @@ library(knitr)
 insuficiencia_cardiaca <- read.csv("heart_failure_clinical_records_dataset.csv")
 ```
 
-#Consultas
+# Consultas
+
+Ejercicios de consultas
 
 ## Colsulta 1
 
