@@ -88,6 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#colsulta-1" id="toc-colsulta-1" class="nav-link" data-scroll-target="#colsulta-1">Colsulta 1</a></li>
   <li><a href="#consulta-2" id="toc-consulta-2" class="nav-link" data-scroll-target="#consulta-2">Consulta 2</a></li>
   <li><a href="#consulta-3" id="toc-consulta-3" class="nav-link" data-scroll-target="#consulta-3">Consulta 3</a></li>
+  <li><a href="#consulta-4" id="toc-consulta-4" class="nav-link" data-scroll-target="#consulta-4">Consulta 4</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -451,6 +452,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">4752</td>
 <td style="text-align: right;">15.89298</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="consulta-4" class="level2">
+<h2 class="anchored" data-anchor-id="consulta-4">Consulta 4</h2>
+<p>Tabla que muestre la menor edad de los hombres fallecidos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> insuficiencia_cardiaca <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, sex, DEATH_EVENT) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"1"</span>, DEATH_EVENT <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, DEATH_EVENT) <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">age_min =</span> <span class="fu">min</span>(age)) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">sex</th>
+<th style="text-align: right;">DEATH_EVENT</th>
+<th style="text-align: right;">age_min</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">45</td>
 </tr>
 </tbody>
 </table>

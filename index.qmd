@@ -92,8 +92,22 @@ insuficiencia_cardiaca |>
   kable()
 ```
 
+## Consulta 4
 
+Tabla que muestre la menor edad de los hombres fallecidos.
 
+```{r}
+#| label: Consulta-04
+#| message: false
+#| warning: false
+
+ insuficiencia_cardiaca |>
+  select(age, sex, DEATH_EVENT) |>
+  filter(sex == "1", DEATH_EVENT == "1") |>
+  group_by(sex, DEATH_EVENT) |>
+  summarise(age_min = min(age)) |>
+  kable()
+```
 
 
 
