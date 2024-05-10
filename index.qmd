@@ -19,15 +19,14 @@ En este documento se muestran diversas caracteristicas que pacientes con dichos 
 
 library(tidyverse)
 library(knitr)
+```
+
+## Carga de Datos
+
+```{r}
 #| label: carga-datos
 #| message: false
 #| warning: false
 
 insuficiencia_cardiaca <- read.csv("heart_failure_clinical_records_dataset.csv")
-```
-
-
-
-```{r}
-
 ```
