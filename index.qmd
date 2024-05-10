@@ -1,16 +1,19 @@
 ---
-title: "TP_3"
-author: "Khiara Morales"
+title: "Tp3"
+author: "Nayely Araya y Khiara Morales"
 format: html
-lang: es
 toc: true
+lang: es
+theme: yeti
 ---
-# Introducción 
+
+# Introducción
+
 Las enfermedades cardiovasculares son una afección que afectan a millones de personas al rededor del mundo.
 
-En este documento se muestran diversas caracteristicas que pacientes con dichos problemas medicos presetaban, todo esto de la mano del documetno (nombre del documetno)
+En este documento se muestran diversas características que pacientes con dichos problemas médicos presentaban, todo esto de la mano del documento ["El aprendizaje automático puede predecir la supervivencia de pacientes con insuficiencia cardíaca basándose únicamente en la creatinina sérica y la fracción de eyección"](https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-020-1023-5)
 
-## Carga de paquetes
+# Carga de paquetes
 
 ```{r}
 #| label: carga-paquetes
@@ -21,7 +24,7 @@ library(tidyverse)
 library(knitr)
 ```
 
-## Carga de Datos
+# Carga de datos
 
 ```{r}
 #| label: carga-datos
@@ -30,3 +33,71 @@ library(knitr)
 
 insuficiencia_cardiaca <- read.csv("heart_failure_clinical_records_dataset.csv")
 ```
+
+#Consultas
+
+## Colsulta 1
+
+Tabla que para las mujeres mayores de 75 años muestre, en orden descendente de edad, las columnas correspondientes a:
+
+- Sexo
+- Edad
+- Diabetes
+- Presión arterial alta
+- Creatinina sérica
+
+```{r}
+#| label: consulta-1
+
+insuficiencia_cardiaca |>
+  select(age, sex, diabetes, high_blood_pressure, serum_creatinine) |>
+  filter(age > 75, sex == 0, high_blood_pressure == 1) |>
+  kable()
+```
+
+## Consulta 2
+
+Tabla que para todos los hombres diabéticos o fumadores muestre, en orden ascendente de edad, las columnas correspondientes a:
+
+- Sexo
+- Edad
+- Diabetes
+- Fumador
+- Fracción de eyección
+
+```{r}
+#| label: Consulta-2
+
+insuficiencia_cardiaca |>
+  select(sex, age, diabetes, smoking, ejection_fraction) |>
+  filter(sex == "1", diabetes == "1", smoking == "1") |>
+  arrange(age) |>
+  kable()
+```
+
+## Consulta 3
+
+Tabla que muestre el promedio de fracción de eyección de los pacientes diabéticos y de los pacientes no diabéticos.
+
+```{r}
+#| label: consulta-3
+
+insuficiencia_cardiaca |>
+  select(diabetes, ejection_fraction) |>
+  group_by(diabetes) |>
+  summarize(ejection_fraction_sum = sum(ejection_fraction)) |>
+  mutate(promedio_fraccion_eyeccion = ejection_fraction_sum / 299) |>
+  kable()
+```
+
+
+
+
+
+
+
+
+
+
+
+
