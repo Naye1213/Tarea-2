@@ -1,0 +1,33 @@
+---
+title: "TP_3"
+author: "Khiara Morales"
+format: html
+lang: es
+toc: true
+---
+# Introducción 
+Las enfermedades cardiovasculares son una afección que afectan a millones de personas al rededor del mundo.
+
+En este documento se muestran diversas caracteristicas que pacientes con dichos problemas medicos presetaban, todo esto de la mano del documetno (nombre del documetno)
+
+## Carga de paquetes
+
+```{r}
+#| label: carga-paquetes
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(knitr)
+#| label: carga-datos
+#| message: false
+#| warning: false
+
+insuficiencia_cardiaca <- read.csv("heart_failure_clinical_records_dataset.csv")
+```
+
+
+
+```{r}
+
+```
